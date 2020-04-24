@@ -51,8 +51,8 @@ export default (state = INITIAL_STATE, action) => {
         case GET_ALL_REPOS:
             return {
                 ...state,
-                repos: action.payload,
                 exists: true,
+                repos: action.payload,
                 loading: false,
                 error: null
             }
