@@ -74,9 +74,6 @@ const ContactForm = (props) => (
             </form>
             {Object.keys(props.errorsInput).length ? '' : <button onClick={props.onClick} className="Button lg">Enviar</button>}
             
-            {(props.errorsInput.userGit) && (
-                <p className="danger">El usuario de Git no existe, por favor revise el usuario que digitó</p>
-            )}
         </div>
     </div>
 );
