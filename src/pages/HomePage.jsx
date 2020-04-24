@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import {
   updateInputValue,
@@ -8,41 +8,43 @@ import {
   errorUserGit,
 } from "../redux/actions/usersRepoActions";
 
-// import Home from './Home';
+// 
 import Loader from "../components/Loader";
 import NotFound from "./NotFound";
-import ContactForm from '../components/ContactForm';
+import ContactForm from "../components/ContactForm";
 
 const HomePage = (props) => {
-  const handleClick = async(event) => {
-    event.preventDefault();    
-    if(!Object.keys(props.errorsInput).length) {
-      await props.dataUser(props.form.userGit)
+  const handleClick = async (event) => {
+    event.preventDefault();
+    if (!Object.keys(props.errorsInput).length) {
+      await props.errorUserGit();
+      await props.dataUser(props.form.userGit);
       await props.getAllRepos(props.form.userGit);
-      props.errorUserGit();
-          if(props.repos) {
-            props.history.push(`/${props.form.userGit}`);
-            props.exists = true;
-          }
-        }else {
-          return <p>helou</p>
-        }      
-      };
-      const handleChange = event => {
-        props.validateInputs();
-      props.updateInputValue(event);
-    };
+      console.log(props);
+      if (props.dataUser) {
+        props.history.push(`/${props.form.userGit}`);
+      }
+    } else {
+      return <p>helou</p>;
+    }
+  };
+  useEffect(() => {
     
-    if(props.loading) return <Loader></Loader>
-    if(props.error) return <NotFound></NotFound>
+  }, [props])
+  const handleChange = (event) => {
+    props.validateInputs();
+    props.updateInputValue(event);
+  };
+
+  if (props.loading) return <Loader></Loader>;
+  if (props.error) return <NotFound></NotFound>;
   return (
     <React.Fragment>
       <ContactForm
         onSubmit={handleClick}
         onClick={handleClick}
         onChange={handleChange}
-      >
-      </ContactForm>
+      ></ContactForm>
       {props.errorExists && <p class="warning">{props.errorExists}</p>}
     </React.Fragment>
   );

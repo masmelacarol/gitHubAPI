@@ -1,0 +1,26 @@
+@media (max-width: 900px) {
+    .Form {
+        flex-wrap: wrap;
+        &__body {
+            width: 90% !important;
+            margin: auto;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .Form {
+        height: 100vh !important;
+        &__body {
+            &--columns {
+                width: 100% !important;
+                .form-group .form-control {
+                    width: 100% !important;
+                }
+            }
+        }
+        .Button.lg {
+            width: 95% !important;
+        }
+    }
+}
