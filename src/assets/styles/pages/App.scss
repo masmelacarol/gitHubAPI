@@ -1,0 +1,25 @@
+@import '../Vars.scss';
+// @import './Media.scss';
+* {
+    box-sizing: border-box;
+}
+
+ ::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    margin: 0;
+    font-family: var(--theme-font-family);
+    color: var(--color-main);
+    background: var(--bg-main);
+    background: -webkit-linear-gradient(to right, var(--bg-main_light), var(--bg-main));
+    background: linear-gradient(to right, var(--bg-main_light), var(--bg-main));
+}
+
+.warning {
+    color: var(--color-warning);
+    margin: 10px auto;
+    text-align: center;
+    font-weight: 700;
+}

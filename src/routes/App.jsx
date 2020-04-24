@@ -1,17 +1,20 @@
 import React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
-import Home from '../pages/Home';
-import '../assets/styles/App.scss';
-import Initial from '../pages/Initial';
+import '../assets/styles/pages/App.scss';
+
 import Layout from '../components/Layout';
+import InitialPage from '../pages/InitialPage';
+import HomePage from '../pages/HomePage';
+import UserGitPage from '../pages/UserGitPage';
 
 const App = () => {    
   return (
     <BrowserRouter>
       <Layout>
         <Switch>
-            <Route exact path="/" component={Home}></Route>
-            <Route exact path="/home" component={Initial}></Route>
+            <Route exact path="/" component={InitialPage}></Route>
+            <Route exact path="/home" component={HomePage}></Route>
+            <Route exact path="/:userGit" component={UserGitPage}></Route>
         </Switch>      
       </Layout>
     </BrowserRouter>
