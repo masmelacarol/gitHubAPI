@@ -1,0 +1,9 @@
+export const UPDATE_INPUT_VALUE = 'UPDATE_INPUT_VALUE';
+export const DATA_USER = 'DATA_USER';
+export const GET_ALL_REPOS = 'GET_ALL_REPOS';
+export const LOADING = 'LOADING';
+export const ERROR = 'ERROR';
+export const REPO_SEARCH = 'REPO_SEARCH';
+export const GET_VALUE = 'GET_VALUE';
+export const VALIDATE_INPUTS = 'VALIDATE_INPUTS';
+export const ERROR_USER_GIT = 'ERROR_USER_GIT';
